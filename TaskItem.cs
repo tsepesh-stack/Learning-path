@@ -3,7 +3,7 @@ namespace TaskManager
 {
     enum Status{New, InProgress, Done}
     enum Priority{Low, Medium, High}
-    class Task
+    class TaskItem
     {
         public int Id {get;set;}
         public string Title{get;set;}
@@ -11,7 +11,7 @@ namespace TaskManager
         public Status Status{get;set;}
         public DateTime CreatedAt{get; set;}
         public Priority Priority{get; set;}
-        public Task(int Id, string Title,string Description,Status Status,DateTime CreatedAt,Priority Priority)
+        public TaskItem(int Id, string Title,string Description,Status Status,DateTime CreatedAt,Priority Priority)
         {
             this.Id=Id;
             this.Title=Title;
