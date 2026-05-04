@@ -1,1 +1,11 @@
-﻿Console.WriteLine("Hello, World!");
+﻿using System;
+namespace TaskManager
+{
+    class Program
+    {
+        static void Main()
+        {
+            
+        }
+    }
+}
