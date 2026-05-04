@@ -28,12 +28,14 @@ namespace TaskManager
             }
             do
             {
+                System.Console.WriteLine("Список действий в TaskManager");
                 System.Console.WriteLine("1 — добавить задачу");
                 System.Console.WriteLine("2 — удалить задачу");
                 System.Console.WriteLine("3 — показать все задачи (с выбором)");
                 System.Console.WriteLine("4 — изменить любые параметры задачи");
                 System.Console.WriteLine("5 — показать сделаные задачи");
                 System.Console.WriteLine("0 — выход");
+                System.Console.Write("Ввод: ");
                 try
                 {
                     n=int.Parse(Console.ReadLine());
@@ -62,6 +64,7 @@ namespace TaskManager
                     System.Console.WriteLine("Выберите статус задачи (процесс выполнения)");
                     System.Console.WriteLine("1 — Новая задача");
                     System.Console.WriteLine("2 — Задача в процессе");
+                    System.Console.Write("Ввод: ");
                     try
                         {
                             m=int.Parse(Console.ReadLine());
@@ -75,6 +78,7 @@ namespace TaskManager
                     System.Console.WriteLine("1 — Высокая");
                     System.Console.WriteLine("2 — Средняя");
                     System.Console.WriteLine("3 — Низкая");
+                    System.Console.Write("Ввод: ");
                     try
                         {
                             k=int.Parse(Console.ReadLine());
@@ -155,6 +159,7 @@ namespace TaskManager
                     System.Console.WriteLine("1 — Все задачи без перебоя");
                     System.Console.WriteLine("2 — По статусу");
                     System.Console.WriteLine("3 — По приоритету");
+                    System.Console.Write("Ввод: ");
                         try
                         {
                             m=int.Parse(Console.ReadLine());
@@ -169,7 +174,7 @@ namespace TaskManager
                             case 1: //Выводит задаче без фильтра
                             foreach(var el in ts)
                                 {
-                                    System.Console.WriteLine($"Айди:{el.Id}, Название:{el.Title}, Описание:{el.Description}, Статус:{el.Status}, Приоритет:{el.Priority}, Время создания:{el.CreatedAt}");
+                                    System.Console.WriteLine($"Айди: {el.Id}, Название: {el.Title}, Описание: {el.Description}, Статус: {el.Status}, Приоритет: {el.Priority}, Время создания: {el.CreatedAt}");
                                 }
                             break;
                             case 2: //Выводит задачи с фильтром статус
@@ -200,6 +205,7 @@ namespace TaskManager
                     System.Console.WriteLine("Изменения параметров задачи");
                     System.Console.WriteLine("1 — Отметить задачу выполненой");
                     System.Console.WriteLine("2 — Другое действие");
+                    System.Console.Write("Ввод: ");
                     try
                         {
                             m=int.Parse(Console.ReadLine());
@@ -256,6 +262,7 @@ namespace TaskManager
                             System.Console.WriteLine("2 — Описание");
                             System.Console.WriteLine("3 — Статус");
                             System.Console.WriteLine("4 — Приоритет");
+                            System.Console.Write("Ввод: ");
                             try
                                 {
                                     m=int.Parse(Console.ReadLine());
@@ -406,7 +413,7 @@ namespace TaskManager
                                                     System.Console.WriteLine("Выберете новый приоритет");
                                                     System.Console.WriteLine("1 — Средний");
                                                     System.Console.WriteLine("2 — Высокий");
-                                                    System.Console.Write("Введите значение: ");
+                                                    System.Console.Write("Ввод: ");
                                                     try{
                                                     k = int.Parse(Console.ReadLine());
                                                     }
@@ -434,7 +441,7 @@ namespace TaskManager
                                                     System.Console.WriteLine("Выберете новый приоритет");
                                                     System.Console.WriteLine("1 — Низкий");
                                                     System.Console.WriteLine("2 — Высокий");
-                                                    System.Console.Write("Введите значение: ");
+                                                    System.Console.Write("Ввод: ");
                                                     try{
                                                     k = int.Parse(Console.ReadLine());
                                                     }
@@ -461,7 +468,7 @@ namespace TaskManager
                                                     System.Console.WriteLine("Выберете новый приоритет");
                                                     System.Console.WriteLine("1 — Низкий");
                                                     System.Console.WriteLine("2 — Средний");
-                                                    System.Console.Write("Введите значение: ");
+                                                    System.Console.Write("Ввод: ");
                                                     try{
                                                     k = int.Parse(Console.ReadLine());
                                                     }
@@ -495,7 +502,7 @@ namespace TaskManager
                                         System.Console.WriteLine("Выберете новый приоритет");
                                         System.Console.WriteLine("1 — Средний");
                                         System.Console.WriteLine("2 — Высокий");
-                                        System.Console.Write("Введите значение: ");
+                                        System.Console.Write("Ввод: ");
                                         try{
                                         k = int.Parse(Console.ReadLine());
                                         }
@@ -523,7 +530,7 @@ namespace TaskManager
                                         System.Console.WriteLine("Выберете новый приоритет");
                                         System.Console.WriteLine("1 — Низкий");
                                         System.Console.WriteLine("2 — Высокий");
-                                        System.Console.Write("Введите значение: ");
+                                        System.Console.Write("Ввод: ");
                                         try{
                                         k = int.Parse(Console.ReadLine());
                                         }
@@ -550,7 +557,7 @@ namespace TaskManager
                                         System.Console.WriteLine("Выберете новый приоритет");
                                         System.Console.WriteLine("1 — Низкий");
                                         System.Console.WriteLine("2 — Средний");
-                                        System.Console.Write("Введите значение: ");
+                                        System.Console.Write("Ввод: ");
                                         try{
                                         k = int.Parse(Console.ReadLine());
                                         }
@@ -587,7 +594,7 @@ namespace TaskManager
                     System.Console.WriteLine("Список Выполненых заданий:");
                     foreach(var el in tsd)
                         {
-                            System.Console.WriteLine($"Айди:{el.Id}, Название:{el.Title}, Описание:{el.Description}, Статус:{el.Status}, Приоритет:{el.Priority}, Время создания:{el.CreatedAt}");
+                            System.Console.WriteLine($"Айди: {el.Id}, Название: {el.Title}, Описание: {el.Description}, Статус: {el.Status}, Приоритет: {el.Priority}, Время создания: {el.CreatedAt}");
                         }
                     break;
                 }

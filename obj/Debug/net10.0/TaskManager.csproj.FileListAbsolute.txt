@@ -1,0 +1,15 @@
+C:\Users\89779\OneDrive\Desktop\TaskManager\bin\Debug\net10.0\TaskManager.exe
+C:\Users\89779\OneDrive\Desktop\TaskManager\bin\Debug\net10.0\TaskManager.deps.json
+C:\Users\89779\OneDrive\Desktop\TaskManager\bin\Debug\net10.0\TaskManager.runtimeconfig.json
+C:\Users\89779\OneDrive\Desktop\TaskManager\bin\Debug\net10.0\TaskManager.dll
+C:\Users\89779\OneDrive\Desktop\TaskManager\bin\Debug\net10.0\TaskManager.pdb
+C:\Users\89779\OneDrive\Desktop\TaskManager\obj\Debug\net10.0\TaskManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\89779\OneDrive\Desktop\TaskManager\obj\Debug\net10.0\TaskManager.AssemblyInfoInputs.cache
+C:\Users\89779\OneDrive\Desktop\TaskManager\obj\Debug\net10.0\TaskManager.AssemblyInfo.cs
+C:\Users\89779\OneDrive\Desktop\TaskManager\obj\Debug\net10.0\TaskManager.csproj.CoreCompileInputs.cache
+C:\Users\89779\OneDrive\Desktop\TaskManager\obj\Debug\net10.0\TaskManager.sourcelink.json
+C:\Users\89779\OneDrive\Desktop\TaskManager\obj\Debug\net10.0\TaskManager.dll
+C:\Users\89779\OneDrive\Desktop\TaskManager\obj\Debug\net10.0\refint\TaskManager.dll
+C:\Users\89779\OneDrive\Desktop\TaskManager\obj\Debug\net10.0\TaskManager.pdb
+C:\Users\89779\OneDrive\Desktop\TaskManager\obj\Debug\net10.0\TaskManager.genruntimeconfig.cache
+C:\Users\89779\OneDrive\Desktop\TaskManager\obj\Debug\net10.0\ref\TaskManager.dll
