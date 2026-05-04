@@ -15,6 +15,7 @@ namespace TaskManager
             string Title;
             string Description;
             DateTime dateTime;
+            string s;
             if (File.Exists("tasks.json"))
             {
                 string json = File.ReadAllText("tasks.json");
@@ -75,12 +76,18 @@ namespace TaskManager
                             {
                                 case 1:
                                 ts.Add(new TaskItem(newId,Title,Description, Status.New,DateTime.Now, Priority.Low));
+                                string json = JsonSerializer.Serialize(ts);
+                                File.WriteAllText("tasksdone.json",json);
                                 break;
                                 case 2: 
                                 ts.Add(new TaskItem(newId,Title,Description, Status.New,DateTime.Now, Priority.Medium));
+                                string json1 = JsonSerializer.Serialize(ts);
+                                File.WriteAllText("tasksdone.json",json1);
                                 break;
                                 case 3: 
                                 ts.Add(new TaskItem(newId,Title,Description, Status.New,DateTime.Now, Priority.High));
+                                string json2 = JsonSerializer.Serialize(ts);
+                                File.WriteAllText("tasksdone.json",json2);
                                 break;
                             }
                         } else if (m == 2)
@@ -89,18 +96,46 @@ namespace TaskManager
                             {
                                 case 1:
                                 ts.Add(new TaskItem(newId,Title,Description, Status.InProgress,DateTime.Now, Priority.Low));
+                                string json = JsonSerializer.Serialize(ts);
+                                File.WriteAllText("tasksdone.json",json);
                                 break;
                                 case 2: 
                                 ts.Add(new TaskItem(newId,Title,Description, Status.InProgress,DateTime.Now, Priority.Medium));
+                                string json1 = JsonSerializer.Serialize(ts);
+                                File.WriteAllText("tasksdone.json",json1);
                                 break;
                                 case 3: 
                                 ts.Add(new TaskItem(newId,Title,Description, Status.InProgress,DateTime.Now, Priority.High));
+                                string json2 = JsonSerializer.Serialize(ts);
+                                File.WriteAllText("tasksdone.json",json2);
                                 break;
                             }
                         }
                     break;
                     case 2: 
-                    
+                    System.Console.WriteLine("Вы выбрали удалить задачу");
+                    System.Console.WriteLine("Список всех задач");
+                    foreach(var el in ts)
+                        {
+                            System.Console.WriteLine($"Задача {el.Id} - {el.Title}");
+                        }
+                        System.Console.WriteLine("Выберите задачу по ее айди или названию");
+                        System.Console.WriteLine("Введи айди или название");
+                        s=Console.ReadLine();
+                        if (ts.Any(x => x.Title == s))
+                        {
+                            ts.RemoveAll(x => x.Title == s);
+                            Console.WriteLine("Задача удалена");
+                        }
+                        else if (int.TryParse(s, out int id) && ts.Any(x => x.Id == id))
+                        {
+                            ts.RemoveAll(x => x.Id == id);
+                            Console.WriteLine("Задача удалена");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Не найдено!");
+                        }
                     break;
                     case 3: break;
                     case 4: break;
