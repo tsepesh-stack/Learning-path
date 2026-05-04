@@ -30,11 +30,9 @@ namespace TaskManager
             {
                 System.Console.WriteLine("1 — добавить задачу");
                 System.Console.WriteLine("2 — удалить задачу");
-                System.Console.WriteLine("3 — показать все задачи");
-                System.Console.WriteLine("4 — показать задачи по статусу");
-                System.Console.WriteLine("5 — изменить статус задачи");
-                System.Console.WriteLine("6 — показать задачи по приоритету");
-                System.Console.WriteLine("7 — показать сделаные задачи");
+                System.Console.WriteLine("3 — показать все задачи (с выбором)");
+                System.Console.WriteLine("4 — изменить любые параметры задачи");
+                System.Console.WriteLine("5 — показать сделаные задачи");
                 System.Console.WriteLine("0 — выход");
                 try
                 {
@@ -64,12 +62,28 @@ namespace TaskManager
                     System.Console.WriteLine("Выберите статус задачи (процесс выполнения)");
                     System.Console.WriteLine("1 — Новая задача");
                     System.Console.WriteLine("2 — Задача в процессе");
-                    m=int.Parse(Console.ReadLine());
+                    try
+                        {
+                            m=int.Parse(Console.ReadLine());
+                        }
+                        catch (FormatException)
+                        {
+                            System.Console.WriteLine("Введен не тот формат!");
+                            m=-1;
+                        }
                     System.Console.WriteLine("Выберите приоритет задачи (необходимость перед остальными задачами)");
                     System.Console.WriteLine("1 — Низкая");
                     System.Console.WriteLine("2 — Средняя");
                     System.Console.WriteLine("3 — Высокая");
-                    k=int.Parse(Console.ReadLine());
+                    try
+                        {
+                            k=int.Parse(Console.ReadLine());
+                        }
+                        catch (FormatException)
+                        {
+                            System.Console.WriteLine("Введен не тот формат!");
+                            k=-1;
+                        }
                         if (m == 1)
                         {
                             switch (k)
@@ -137,7 +151,52 @@ namespace TaskManager
                             Console.WriteLine("Не найдено!");
                         }
                     break;
-                    case 3: break;
+                    case 3: 
+                    System.Console.WriteLine("Выберете способ вывести задачи");
+                    System.Console.WriteLine("1 — Все задачи без перебоя");
+                    System.Console.WriteLine("2 — По статусу");
+                    System.Console.WriteLine("3 — По приоритету");
+                        try
+                        {
+                            m=int.Parse(Console.ReadLine());
+                        }
+                        catch (FormatException)
+                        {
+                            System.Console.WriteLine("Введен не тот формат!");
+                            m=-1;
+                        }
+                        switch (m)
+                        {
+                            case 1:
+                            foreach(var el in ts)
+                                {
+                                    System.Console.WriteLine($"Айди:{el.Id}, Название:{el.Title}, Описание:{el.Description}, Статус:{el.Status}, Приоритет:{el.Priority}, Время создания:{el.CreatedAt}");
+                                }
+                            break;
+                            case 2:
+                            var newts = ts.GroupBy(x => x.Status);
+                            foreach(var group in newts)
+                            {
+                                Console.WriteLine($"Задачи по статусу: {group.Key}");
+                                foreach(var task in group)
+                                {
+                                    Console.WriteLine($"-----{task.Id} - {task.Title}");
+                                }
+                            }
+                            break;
+                            case 3:
+                            var newts1 = ts.GroupBy(x => x.Priority);
+                            foreach(var group in newts1)
+                            {
+                                Console.WriteLine($"Задачи по статусу: {group.Key}");
+                                foreach(var task in group)
+                                {
+                                    Console.WriteLine($"-----{task.Id} - {task.Title}");
+                                }
+                            }
+                            break;
+                        }
+                    break;
                     case 4: break;
                     case 5: break;
                     case 6: break;
