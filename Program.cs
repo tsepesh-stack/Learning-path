@@ -135,7 +135,74 @@ namespace TaskManager
                         }
                     break;
                     case 4: // Меняет приоритеты
+                    Console.WriteLine("Что хотите изменить?");
+                    Console.WriteLine("1 — Отметить выполненной (архив)");
+                    Console.WriteLine("2 — Название");
+                    Console.WriteLine("3 — Описание");
+                    Console.WriteLine("4 — Статус");
+                    Console.WriteLine("5 — Приоритет");
+                    Console.Write("Ввод: ");
+                    if (!int.TryParse(Console.ReadLine(), out m))
+                    {
+                        Console.WriteLine("Не тот формат!");
+                        break;
+                    }
 
+                    // Поиск задачи (общий для всех)
+                    PrintTasks(ts);
+                    Console.Write("Выберите задачу по айди или названию: ");
+                    s = Console.ReadLine();
+                    var task2 = FindTask(ts, s);
+                    if (task2 == null)
+                    {
+                        Console.WriteLine("Не найдено!");
+                        break;
+                    }
+
+                    // Действие в зависимости от выбора
+                    switch (m)
+                    {
+                        case 1: // Архив
+                            task2.Status = Status.Done;
+                            tsd.Add(task2);
+                            ts.Remove(task2);
+                            File.WriteAllText("tasksdone.json", JsonSerializer.Serialize(tsd));
+                            Console.WriteLine("Задача отправлена в архив");
+                            break;
+                        case 2: // Название
+                            Console.Write("Введите новое название: ");
+                            task2.Title = Console.ReadLine();
+                            Console.WriteLine("Название изменено");
+                            break;
+                        case 3: // Описание
+                            Console.Write("Введите новое описание: ");
+                            task2.Description = Console.ReadLine();
+                            Console.WriteLine("Описание изменено");
+                            break;
+                        case 4: // Статус
+                            Console.WriteLine("1 — New, 2 — InProgress");
+                            Console.Write("Ввод: ");
+                            if (!int.TryParse(Console.ReadLine(), out k))
+                            {
+                                Console.WriteLine("Не тот формат!");
+                                break;
+                            }
+                            task2.Status = k == 1 ? Status.New : Status.InProgress;
+                            Console.WriteLine($"Статус изменён на {task2.Status}");
+                            break;
+                        case 5: // Приоритет
+                            Console.WriteLine("1 — Low, 2 — Medium, 3 — High");
+                            Console.Write("Ввод: ");
+                            if (!int.TryParse(Console.ReadLine(), out k))
+                            {
+                                Console.WriteLine("Не тот формат!");
+                                break;
+                            }
+                            task2.Priority = k == 1 ? Priority.Low : k == 2 ? Priority.Medium : Priority.High;
+                            Console.WriteLine($"Приоритет изменён на {task2.Priority}");
+                            break;
+                    }
+                    File.WriteAllText("tasks.json", JsonSerializer.Serialize(ts));
                     break;
                     case 5: 
                     System.Console.WriteLine("Список Выполненых заданий:");
