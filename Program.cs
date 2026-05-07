@@ -114,7 +114,10 @@ namespace TaskManager
                             var newts = ts.GroupBy(x => x.Status);
                             foreach(var group in newts)
                             {
-                                Console.WriteLine($"Задачи по статусу: {group.Key}");
+                                string ru = group.Key == Status.New ? "Новая"
+                                            : group.Key == Status.InProgress ? "В процессе"
+                                            : "Выполнена";
+                                Console.WriteLine($"Задачи по статусу: {ru}");
                                 foreach(var task1 in group)
                                 {
                                     Console.WriteLine($"-----{task1.Id} - {task1.Title}");
@@ -125,7 +128,10 @@ namespace TaskManager
                             var newts1 = ts.GroupBy(x => x.Priority);
                             foreach(var group in newts1)
                             {
-                                Console.WriteLine($"Задачи по приоритету: {group.Key}");
+                                string ru = group.Key == Priority.High ? "Высокая"
+                                            : group.Key == Priority.Medium ? "Средняя"
+                                            : "Низкая";
+                                Console.WriteLine($"Задачи по приоритету: {ru}");
                                 foreach(var task1 in group)
                                 {
                                     Console.WriteLine($"-----{task1.Id} - {task1.Title}");
