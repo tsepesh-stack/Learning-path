@@ -1,0 +1,31 @@
+@host = http://localhost:5004
+
+GET {{host}}/tasks
+Accept: application/json
+
+###
+
+GET {{host}}/tasks/1
+Accept: application/json
+
+###
+
+POST {{host}}/tasks
+Content-Type: application/json
+
+{
+    "name": "Новая задача",
+    "status": 0
+}
+###
+
+PUT {{host}}/tasks/3
+Content-Type: application/json
+
+{
+    "name": "Изучить Web API - ГОТОВО",
+    "status": 0
+}
+###
+
+DELETE {{host}}/tasks/1
