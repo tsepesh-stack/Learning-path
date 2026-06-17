@@ -19,7 +19,7 @@ Content-Type: application/json
 }
 ###
 
-PUT {{host}}/tasks/3
+PUT {{host}}/tasks/1
 Content-Type: application/json
 
 {
@@ -29,3 +29,13 @@ Content-Type: application/json
 ###
 
 DELETE {{host}}/tasks/1
+
+###
+POST {{host}}/tasks
+Content-Type: application/json
+
+{
+    "name": "",
+    "status": 0
+}
+###
