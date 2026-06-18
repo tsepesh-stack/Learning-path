@@ -4,56 +4,48 @@ namespace TaskManagerApi.Controllers;
 [Route("[controller]")]
 public class TasksController : ControllerBase
 {
-    private static List<TaskItem> _tasks = new List<TaskItem>
+    private readonly TaskService _taskService;
+    public TasksController(TaskService taskService)
     {
-        new TaskItem { Id = 1, Name = "Изучить Web API", Status = Status.unfulfilled },
-        new TaskItem { Id = 2, Name = "Сделать курсовую", Status = Status.done }
-    };
+        _taskService = taskService;
+    }
     [HttpGet]
     public ActionResult<List<TaskItem>> Get()
     {
-        return Ok(_tasks);
+        return Ok(_taskService.GetAll());
     }
     [HttpPost]
     public ActionResult<TaskItem> Create(CreateTaskDto dto)
     {
-        var task = new TaskItem
-        {
-          Id= _tasks.Max(t=>t.Id)+1,
-          Name=dto.Name,
-          Status=dto.Status  
-        };
-        _tasks.Add(task);
+        var task = _taskService.Create(dto);
         return Created($"/tasks/{task.Id}", task);
     }
     [HttpPut ("{id}")]
     public ActionResult<TaskItem> Update(int id, UpdateTaskDto dto)
     {
-        var existingTask = _tasks.FirstOrDefault(t => t.Id == id);
-        if (existingTask == null)
+        var task = _taskService.Update(id,dto);
+        if (task == false)
         {
             return NotFound();
-        }
-        existingTask.Name = dto.Name;
-        existingTask.Status = dto.Status;
-        return Ok(existingTask);
+        } else{return Ok(_taskService.GetById(id));}
     }
     [HttpDelete ("{id}")]
     public ActionResult Delete(int id)
     {
-        var delTask = _tasks.FirstOrDefault(t=>t.Id==id);
-        if (delTask == null)
+       var task = _taskService.Delete(id);
+       if (task == false)
+        {
+            return NotFound();
+        } else
         {
             return NoContent();
         }
-        _tasks.Remove(delTask);
-        return Ok(_tasks);
     }
     [HttpGet("{id}")]
-public ActionResult<TaskItem> Get(int id)
-{
-    var task= _tasks.FirstOrDefault(t=>t.Id ==id);
-    if (task == null)
+    public ActionResult<TaskItem> Get(int id)
+    {
+        var task = _taskService.GetById(id);
+        if (task == null)
         {
             return NotFound();
         }
@@ -61,5 +53,5 @@ public ActionResult<TaskItem> Get(int id)
         {
             return Ok(task);
         }
-}
+    }
 } 
