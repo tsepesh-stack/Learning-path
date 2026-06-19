@@ -5,13 +5,16 @@ namespace TaskManagerApi.Controllers;
 public class TasksController : ControllerBase
 {
     private readonly TaskService _taskService;
-    public TasksController(TaskService taskService)
+    private readonly IConfiguration _config;
+    public TasksController(TaskService taskService, IConfiguration config)
     {
         _taskService = taskService;
+        _config = config;
     }
     [HttpGet]
     public ActionResult<List<TaskItem>> Get()
     {
+        var apiName = _config["AppSettings:ApiName"];
         return Ok(_taskService.GetAll());
     }
     [HttpPost]
