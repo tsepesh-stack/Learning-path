@@ -39,3 +39,21 @@ Content-Type: application/json
     "status": 0
 }
 ###
+
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{
+    "login": "admin",
+    "password": "1234"
+}
+###
+
+POST {{host}}/tasks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJleHAiOjE3ODIwNDg5NDUsImlzcyI6IlRhc2tNYW5hZ2VyQXBpIn0.xA3HW0iNt4XZCQW3-BSHuEQ9vlFZOL0myxC_ID5SSS0
+
+{
+    "name": "Задача с токеном",
+    "status": 0
+}

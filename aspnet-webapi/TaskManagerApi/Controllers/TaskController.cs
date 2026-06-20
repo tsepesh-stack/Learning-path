@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 namespace TaskManagerApi.Controllers;
+using Microsoft.AspNetCore.Authorization;
 [ApiController]
 [Route("[controller]")]
 public class TasksController : ControllerBase
@@ -18,12 +19,14 @@ public class TasksController : ControllerBase
         return Ok(_taskService.GetAll());
     }
     [HttpPost]
+    [Authorize]
     public ActionResult<TaskItem> Create(CreateTaskDto dto)
     {
         var task = _taskService.Create(dto);
         return Created($"/tasks/{task.Id}", task);
     }
     [HttpPut ("{id}")]
+    [Authorize]
     public ActionResult<TaskItem> Update(int id, UpdateTaskDto dto)
     {
         var task = _taskService.Update(id,dto);
@@ -33,6 +36,7 @@ public class TasksController : ControllerBase
         } else{return Ok(_taskService.GetById(id));}
     }
     [HttpDelete ("{id}")]
+    [Authorize]
     public ActionResult Delete(int id)
     {
        var task = _taskService.Delete(id);
