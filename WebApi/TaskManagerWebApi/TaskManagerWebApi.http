@@ -1,0 +1,48 @@
+@host = http://localhost:5202
+
+GET {{host}}/tasks
+Accept: application/json
+
+###
+
+GET {{host}}/tasks/1
+Accept: application/json
+
+###
+
+POST {{host}}/tasks
+Content-Type: application/json
+
+{
+    "title": "Тестовая задача",
+    "description": "описание",
+    "status": 0,
+    "priority": 1
+}
+
+###
+
+PUT {{host}}/tasks/1
+Content-Type: application/json
+
+{
+    "title": "Обновлённая",
+    "description": "новое описание",
+    "status": 1,
+    "priority": 2
+}
+
+###
+
+DELETE {{host}}/tasks/1
+
+###
+POST {{host}}/tasks
+Content-Type: application/json
+
+{
+    "title": "",
+    "description": "тест",
+    "status": 0,
+    "priority": 1
+}
