@@ -32,3 +32,11 @@ C:\Code\Task-Manager\WebApi\TaskManagerWebApi\obj\Debug\net10.0\refint\TaskManag
 C:\Code\Task-Manager\WebApi\TaskManagerWebApi\obj\Debug\net10.0\TaskManagerWebApi.pdb
 C:\Code\Task-Manager\WebApi\TaskManagerWebApi\obj\Debug\net10.0\TaskManagerWebApi.genruntimeconfig.cache
 C:\Code\Task-Manager\WebApi\TaskManagerWebApi\obj\Debug\net10.0\ref\TaskManagerWebApi.dll
+C:\Code\Task-Manager\WebApi\TaskManagerWebApi\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Code\Task-Manager\WebApi\TaskManagerWebApi\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Code\Task-Manager\WebApi\TaskManagerWebApi\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Code\Task-Manager\WebApi\TaskManagerWebApi\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Code\Task-Manager\WebApi\TaskManagerWebApi\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+C:\Code\Task-Manager\WebApi\TaskManagerWebApi\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Code\Task-Manager\WebApi\TaskManagerWebApi\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Code\Task-Manager\WebApi\TaskManagerWebApi\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll

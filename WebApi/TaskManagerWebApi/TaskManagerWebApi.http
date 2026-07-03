@@ -17,7 +17,8 @@ Content-Type: application/json
     "title": "Тестовая задача",
     "description": "описание",
     "status": 0,
-    "priority": 1
+    "priority": 1,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJleHAiOjE3ODMxNzY4OTEsImlzcyI6IlRhc2tNYW5hZ2VyV2ViQXBpIiwiYXVkIjoiVGFza01hbmFnZXJXZWJBcGlVc2VycyJ9.1WoL84GyFsKdDKt__wXmSlduv6Hsu3j4nGfuCpCl0ns"
 }
 
 ###
@@ -45,4 +46,13 @@ Content-Type: application/json
     "description": "тест",
     "status": 0,
     "priority": 1
+}
+
+###
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{
+    "login": "admin",
+    "password": "1234"
 }
